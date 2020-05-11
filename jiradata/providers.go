@@ -29,3 +29,7 @@ func (c *Component) ProvideComponent() *Component {
 func (e *EpicIssues) ProvideEpicIssues() *EpicIssues {
 	return e
 }
+
+func (p *Version) ProvideVersion() *Version {
+	return p
+}

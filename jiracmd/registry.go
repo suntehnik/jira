@@ -53,6 +53,8 @@ func RegisterAllCommands() {
 	jiracli.RegisterCommand(jiracli.CommandRegistry{Command: "unassign", Entry: CmdUnassignRegistry()})
 	jiracli.RegisterCommand(jiracli.CommandRegistry{Command: "unexport-templates", Entry: CmdUnexportTemplatesRegistry()})
 	jiracli.RegisterCommand(jiracli.CommandRegistry{Command: "view", Entry: CmdViewRegistry()})
+	jiracli.RegisterCommand(jiracli.CommandRegistry{Command: "versions list", Entry: CmdVersionsRegistry()})
+	jiracli.RegisterCommand(jiracli.CommandRegistry{Command: "versions add", Entry: CmdVersionAddRegistry()})
 	jiracli.RegisterCommand(jiracli.CommandRegistry{Command: "vote", Entry: CmdVoteRegistry()})
 	jiracli.RegisterCommand(jiracli.CommandRegistry{Command: "watch", Entry: CmdWatchRegistry()})
 	jiracli.RegisterCommand(jiracli.CommandRegistry{Command: "worklog add", Entry: CmdWorklogAddRegistry()})

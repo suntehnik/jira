@@ -315,6 +315,8 @@ var AllTemplates = map[string]string{
 	"transitions":    defaultTransitionsTemplate,
 	"transmeta":      defaultDebugTemplate,
 	"view":           defaultViewTemplate,
+	"version":        defaultVersionTemplate,
+	"versions":       defaultVersionsTemplate,
 	"worklog":        defaultWorklogTemplate,
 	"worklogs":       defaultWorklogsTemplate,
 }
@@ -360,6 +362,42 @@ const defaultAttachListTemplate = `{{/* attach list template */ -}}
   {{- cell .author.displayName -}}
   {{- cell (.created | age) -}}
 {{- end -}}
+`
+
+const defaultVersionsTemplate = `{{/* versions template */ -}}
+{{- headers "Name" "released" "Release date" -}}
+{{- range .versions -}}
+	{{- row -}}
+	
+	{{- cell .name -}} 
+
+	{{- if .released -}}
+		{{- cell "yes" -}}
+	{{- else -}}
+		{{- cell "no" -}} 
+	{{- end -}}
+	{{- if .userReleaseDate -}}
+		{{- cell .userReleaseDate -}}
+	{{- else -}}
+		{{- cell "<not set>" -}}
+	{{- end -}}
+{{- end -}}
+
+`
+const defaultVersionTemplate = `{{/* version template */ -}}
+Version: {{ .name }}
+ID: {{ .id }}
+Released: {{ if .released -}}
+	{{ "yes" }}
+{{ else -}}
+	{{ "no" }} 
+{{ end -}}
+Release date: {{ if .userReleaseDate -}}
+	{{ .userReleaseDate }}
+{{ else -}}
+	{{ "<not set>" }}
+{{ end -}}
+
 `
 
 const defaultViewTemplate = `{{/* view template */ -}}
